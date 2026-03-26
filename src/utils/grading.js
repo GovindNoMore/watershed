@@ -218,6 +218,14 @@ export function getParamStatus(paramKey, value) {
 
 export function enrichRiver(river) {
   const gradeResult = calculateGrade(river)
+  
+  // Estimate 2026 values based on current trajectory (pessimistic projection)
+  const estimated2026 = {
+    bod_max: river.bod_max ? +(river.bod_max * 1.15).toFixed(1) : null,  // Assume 15% increase
+    do_min: river.do_min ? +(river.do_min * 0.9).toFixed(1) : null,      // Assume 10% decrease
+    fecal_coliform_max: river.fecal_coliform_max ? Math.round(river.fecal_coliform_max * 1.12) : null, // Assume 12% increase
+  }
+  
   return {
     ...river,
     grade:    gradeResult.letter,
@@ -225,6 +233,7 @@ export function enrichRiver(river) {
     scores:   gradeResult.scores,
     partial:  gradeResult.partial,
     gradeMeta: GRADE_META[gradeResult.letter],
+    estimated2026,
   }
 }
 

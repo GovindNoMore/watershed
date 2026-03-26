@@ -248,6 +248,125 @@ export default function LandingPage({ onEnter }) {
         </motion.div>
       </section>
 
+      {/* ── River Conditions Gallery ──────────────── */}
+      <section className="px-6 py-14 max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-xs font-medium tracking-widest uppercase mb-8"
+            style={{ color: 'var(--hint)', fontFamily: 'var(--font-body)' }}>
+            The reality on ground
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Yamuna - Delhi */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0 }}
+              className="overflow-hidden rounded-2xl group cursor-pointer"
+            >
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
+                <img 
+                  src="/images/yamuna.jpg" 
+                  alt="Yamuna River" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
+              <div className="p-5" style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.1rem', color: '#F87171', marginBottom: 4 }}>
+                  Yamuna River
+                </h3>
+                <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
+                  Delhi's lifeline carries 1,800 MLD of untreated sewage daily. Fecal coliform levels reach 4.9M MPN/100mL — 10,000x safe limits.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Ganga - Kanpur */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="overflow-hidden rounded-2xl group cursor-pointer"
+            >
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
+                <img 
+                  src="/images/ganga.jpg" 
+                  alt="Ganga River" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
+              <div className="p-5" style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.1rem', color: '#FBBF24', marginBottom: 4 }}>
+                  Ganga River
+                </h3>
+                <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
+                  India's holiest river fails WHO bathing standards in Kanpur. Industries dump 960 MLD of waste directly. Grade: F (Critical).
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Musi - Hyderabad */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="overflow-hidden rounded-2xl group cursor-pointer"
+            >
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
+                <img 
+                  src="/images/musi.jpg" 
+                  alt="Musi River" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
+              <div className="p-5" style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.1rem', color: '#FB923C', marginBottom: 4 }}>
+                  Musi River
+                </h3>
+                <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
+                  Hyderabad's sewage flows untreated into Musi. Oxygen levels critically depleted at monitoring sites. Fecal coliform: 240 CFU/100mL. Grade: F.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Narmada - Gujarat */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="overflow-hidden rounded-2xl group cursor-pointer"
+            >
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
+                <img 
+                  src="/images/narmada.jpg" 
+                  alt="Narmada River" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
+              <div className="p-5" style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.1rem', color: '#F97316', marginBottom: 4 }}>
+                  Narmada River
+                </h3>
+                <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
+                  Textile mills and chemical plants turn the water brown. Dam silt has destroyed fisheries. 50,000+ tribal livelihoods lost.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* ── Enter Button (bottom) ──────────────── */}
       <div className="pb-16 flex flex-col items-center gap-3">
         <button

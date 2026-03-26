@@ -3,7 +3,7 @@
  */
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Waves, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { useRiverData } from './hooks/useRiverData'
 import LandingPage from './components/LandingPage'
 import RiverMenu from './components/RiverMenu'
@@ -57,12 +57,13 @@ export default function App() {
       <div className="w-screen h-screen overflow-hidden" style={{ background: 'var(--ink)' }}>
         {/* Top bar with branding */}
         <header className="shrink-0 flex items-center justify-between px-6 py-4 border-b" style={{ borderColor: 'var(--border)', background: 'var(--deep)' }}>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(14,165,201,0.15)', border: '1px solid rgba(14,165,201,0.25)' }}>
-              <Waves size={16} style={{ color: '#0EA5C9' }} />
-            </div>
+          <button
+            onClick={exitToLanding}
+            className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
+          >
+            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
             <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed</h1>
-          </div>
+          </button>
           <button
             onClick={exitToLanding}
             className="p-2 hover:bg-white/5 rounded-lg transition-colors"
@@ -95,12 +96,13 @@ export default function App() {
           >
             ← Back to Menu
           </button>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(14,165,201,0.15)', border: '1px solid rgba(14,165,201,0.25)' }}>
-              <Waves size={16} style={{ color: '#0EA5C9' }} />
-            </div>
+          <button
+            onClick={exitToLanding}
+            className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
+          >
+            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
             <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed</h1>
-          </div>
+          </button>
           <button
             onClick={exitToLanding}
             className="p-2 hover:bg-white/5 rounded-lg transition-colors"
@@ -145,12 +147,13 @@ export default function App() {
           >
             ← Back to Menu
           </button>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(14,165,201,0.15)', border: '1px solid rgba(14,165,201,0.25)' }}>
-              <Waves size={16} style={{ color: '#0EA5C9' }} />
-            </div>
+          <button
+            onClick={exitToLanding}
+            className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
+          >
+            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
             <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed Map</h1>
-          </div>
+          </button>
           <button
             onClick={exitToLanding}
             className="p-2 hover:bg-white/5 rounded-lg transition-colors"

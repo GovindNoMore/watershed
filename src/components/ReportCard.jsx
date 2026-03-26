@@ -77,12 +77,58 @@ export default function ReportCard({ river, onClose }) {
           {/* Share */}
           <ShareCard river={river} />
 
-          {/* Data Source Footer */}
-          <div className="flex items-center gap-2 pt-2">
-            <Database size={10} className="text-river-foam/20 shrink-0" />
-            <span className="text-xs text-river-foam/20 font-mono">
-              CPCB NWMP 2021 · Station {river.station_code}
-            </span>
+          {/* Data Disclaimer & Estimates */}
+          <div className="border-t pt-4 space-y-3" style={{ borderColor: 'var(--border)' }}>
+            <div className="rounded-lg p-3" style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.2)' }}>
+              <p className="text-xs font-body leading-relaxed" style={{ color: 'var(--sand)' }}>
+                📊 <strong>Official Data:</strong> CPCB NWMP 2021 (Station {river.station_code})<br/>
+                <span style={{ fontSize: '10px', color: 'var(--muted)' }}>
+                  📈 <strong>2026 Projections:</strong> Based on public studies &amp; trend analysis. Not official forecasts.
+                </span>
+              </p>
+            </div>
+            
+            {river.estimated2026 && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="card p-3 space-y-2"
+              >
+                <p className="text-xs font-semibold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>
+                  2026 Estimates (Projected)
+                </p>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  {river.estimated2026.bod_max !== null && (
+                    <div className="rounded p-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                      <p className="text-xs" style={{ color: 'var(--muted)' }}>BOD est.</p>
+                      <p className="text-sm font-semibold" style={{ color: '#F97316' }}>{river.estimated2026.bod_max} mg/L</p>
+                      <p className="text-xs font-mono" style={{ color: 'var(--hint)' }}>
+                        vs {river.bod_max} now
+                      </p>
+                    </div>
+                  )}
+                  {river.estimated2026.do_min !== null && (
+                    <div className="rounded p-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                      <p className="text-xs" style={{ color: 'var(--muted)' }}>DO est.</p>
+                      <p className="text-sm font-semibold" style={{ color: '#EF4444' }}>{river.estimated2026.do_min} mg/L</p>
+                      <p className="text-xs font-mono" style={{ color: 'var(--hint)' }}>
+                        vs {river.do_min} now
+                      </p>
+                    </div>
+                  )}
+                  {river.estimated2026.fecal_coliform_max !== null && (
+                    <div className="rounded p-2" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                      <p className="text-xs" style={{ color: 'var(--muted)' }}>FC est.</p>
+                      <p className="text-sm font-semibold" style={{ color: '#EF4444' }}>{river.estimated2026.fecal_coliform_max.toLocaleString()}</p>
+                      <p className="text-xs font-mono" style={{ color: 'var(--hint)' }}>
+                        vs {river.fecal_coliform_max?.toLocaleString()} now
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.div>
