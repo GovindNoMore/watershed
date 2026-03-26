@@ -107,7 +107,7 @@ export function calculateGrade(river) {
 export const GRADE_META = {
   A: {
     label:   'Clean',
-    color:   '#16a34a',
+    color:   '#22C55E',
     bg:      'bg-green-600',
     text:    'text-green-400',
     border:  'border-green-500',
@@ -116,7 +116,7 @@ export const GRADE_META = {
   },
   B: {
     label:   'Moderate',
-    color:   '#65a30d',
+    color:   '#84CC16',
     bg:      'bg-lime-600',
     text:    'text-lime-400',
     border:  'border-lime-500',
@@ -125,7 +125,7 @@ export const GRADE_META = {
   },
   C: {
     label:   'Polluted',
-    color:   '#ca8a04',
+    color:   '#F59E0B',
     bg:      'bg-yellow-600',
     text:    'text-yellow-400',
     border:  'border-yellow-500',
@@ -134,7 +134,7 @@ export const GRADE_META = {
   },
   D: {
     label:   'Severely Polluted',
-    color:   '#ea580c',
+    color:   '#F97316',
     bg:      'bg-orange-600',
     text:    'text-orange-400',
     border:  'border-orange-500',
@@ -143,7 +143,7 @@ export const GRADE_META = {
   },
   F: {
     label:   'Critical',
-    color:   '#dc2626',
+    color:   '#EF4444',
     bg:      'bg-red-600',
     text:    'text-red-400',
     border:  'border-red-500',
