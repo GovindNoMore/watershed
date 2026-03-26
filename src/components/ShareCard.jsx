@@ -17,13 +17,13 @@ export default function ShareCard({ river }) {
       const h2c = (await import('html2canvas')).default
       const canvas = await h2c(cardRef.current, { backgroundColor:'#1F2D45', scale:2, useCORS:true, logging:false })
       const a = document.createElement('a')
-      a.download = `${river.river_name.toLowerCase().replace(/\s+/g,'-')}-watershed.png`
+      a.download = `${river.river_name.toLowerCase().replace(/\s+/g,'-')}-riverlens.png`
       a.href = canvas.toDataURL('image/png'); a.click()
     } catch (e) { console.error(e) } finally { setLoading(false) }
   }
 
   async function copyText() {
-    const t = `🌊 Watershed\n\n${river.river_name} (${river.state})\nGrade: ${river.grade} — ${meta.label}\n\nBOD: ${river.bod_max??'N/A'} mg/L | DO: ${river.do_min??'N/A'} mg/L | Fecal Coliform: ${river.fecal_coliform_max??'N/A'} MPN/100mL\n\nData: CPCB NWMP 2021 · watershed.in`
+    const t = `🌊 RiverLens\n\n${river.river_name} (${river.state})\nGrade: ${river.grade} — ${meta.label}\n\nBOD: ${river.bod_max??'N/A'} mg/L | DO: ${river.do_min??'N/A'} mg/L | Fecal Coliform: ${river.fecal_coliform_max??'N/A'} MPN/100mL\n\nData: CPCB NWMP 2021 · riverlens.in`
     await navigator.clipboard.writeText(t)
     setCopied(true); setTimeout(() => setCopied(false), 2000)
   }
@@ -49,7 +49,7 @@ export default function ShareCard({ river }) {
             </div>
           ))}
         </div>
-        <div style={{ marginTop:16, fontSize:10, color:'rgba(245,240,232,0.2)', textAlign:'center' }}>watershed.in · CPCB NWMP 2021</div>
+        <div style={{ marginTop:16, fontSize:10, color:'rgba(245,240,232,0.2)', textAlign:'center' }}>riverlens.in · CPCB NWMP 2021</div>
       </div>
 
       <div className="rounded-xl p-3 flex items-center justify-between" style={{ background:'var(--card)', border:'1px solid var(--border)' }}>

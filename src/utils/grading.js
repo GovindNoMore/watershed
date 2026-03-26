@@ -1,5 +1,5 @@
 /**
- * grading.js — Watershed grading engine
+ * grading.js — RiverLens grading engine
  *
  * Weights (plan spec, nitrate excluded since data unavailable):
  *   BOD            30%  →  scaled to 33%

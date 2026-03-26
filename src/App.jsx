@@ -61,8 +61,8 @@ export default function App() {
             onClick={exitToLanding}
             className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
           >
-            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
-            <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed</h1>
+              <img src="/favicon.svg" alt="RiverLens Logo" className="w-8 h-8" />
+              <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>RiverLens</h1>
           </button>
           <button
             onClick={exitToLanding}
@@ -100,8 +100,8 @@ export default function App() {
             onClick={exitToLanding}
             className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
           >
-            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
-            <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed</h1>
+            <img src="/favicon.svg" alt="RiverLens Logo" className="w-8 h-8" />
+            <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>RiverLens</h1>
           </button>
           <button
             onClick={exitToLanding}
@@ -151,8 +151,8 @@ export default function App() {
             onClick={exitToLanding}
             className="flex items-center gap-3 cursor-pointer hover:opacity-75 transition-opacity"
           >
-            <img src="/favicon.svg" alt="Watershed Logo" className="w-8 h-8" />
-            <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>Watershed Map</h1>
+              <img src="/favicon.svg" alt="RiverLens Logo" className="w-8 h-8" />
+              <h1 className="text-lg font-bold" style={{ fontFamily: 'var(--font-head)', color: 'var(--sand)' }}>RiverLens Map</h1>
           </button>
           <button
             onClick={exitToLanding}

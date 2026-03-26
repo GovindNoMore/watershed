@@ -1,4 +1,4 @@
-# 🌊 Watershed — River Quality Report Card
+# 🌊 RiverLens — River Quality Report Card
 
 > Instant water quality grades for Indian rivers — powered by CPCB 2021 data + Groq AI + Interactive Maps
 
@@ -103,7 +103,7 @@ Main Map View
 ## 📊 Project Structure
 
 ```
-watershed/
+river-lens/
 ├── src/
 │   ├── components/
 │   │   ├── App.jsx            # Main app with dual-view & menu integration

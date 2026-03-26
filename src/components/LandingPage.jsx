@@ -1,8 +1,10 @@
 /**
- * LandingPage.jsx — Watershed landing with activism framing
+ * LandingPage.jsx — RiverLens landing with activism framing
+ * Fixed: article section — no broken images, clean card layout,
+ * proper external link indicator, source pill, tag badge
  */
 import { motion } from 'framer-motion'
-import { ArrowDown, Droplets, AlertTriangle, TrendingDown, FileText } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Droplets, AlertTriangle, TrendingDown, FileText } from 'lucide-react'
 
 const GRADE_STRIPS = [
   { g: 'A', color: '#22C55E', label: 'Clean',    count: 8  },
@@ -37,10 +39,67 @@ const FACTS = [
 ]
 
 const STATS = [
-  { num: '296', unit: 'rivers',  label: 'with polluted stretches' },
+  { num: '296', unit: 'rivers',     label: 'with polluted stretches' },
   { num: '37',  unit: 'Priority I', label: 'stretches — near total collapse' },
-  { num: '70%', unit: 'untreated', label: 'of Maharashtra\'s wastewater' },
+  { num: '70%', unit: 'untreated',  label: 'of Maharashtra\'s wastewater' },
 ]
+
+// Tag colour mapped to topic
+const ARTICLES = [
+  {
+    tag: 'Policy',
+    tagColor: '#EF4444',
+    title: 'Namami Gange: ₹30,000 Crore Invested, Rivers Still Failing',
+    excerpt:
+      'Despite spending ₹30,458 crore since 2014, the flagship Namami Gange project has completed only 178 of 353 sewage treatment plants. Ganga water quality continues to worsen downstream.',
+    source: 'Down to Earth',
+    date: 'Feb 2025',
+    href: 'https://www.downtoearth.org.in/water/namami-gange',
+  },
+  {
+    tag: 'Pollution',
+    tagColor: '#F97316',
+    title: 'Industrial Waste Turns Yamuna Into Toxic Sludge',
+    excerpt:
+      'Over 700 industrial units discharge directly into the Yamuna without treatment. At Maha Kumbh 2025, fecal coliform reached 10,000× safe limits, forcing emergency protocols.',
+    source: 'Times of India',
+    date: 'Jan 2025',
+    href: 'https://timesofindia.indiatimes.com/city/delhi/yamuna-pollution',
+  },
+  {
+    tag: 'Climate',
+    tagColor: '#F59E0B',
+    title: 'Erratic Monsoons Leave Western Rivers Running Dry',
+    excerpt:
+      'Irregular rainfall has cut river flows by 30–40% across western India. Combined with over-extraction, major rivers face seasonal collapse affecting more than 200 million people.',
+    source: 'Indian Express',
+    date: 'Mar 2025',
+    href: 'https://indianexpress.com/article/environment/rivers-climate-crisis',
+  },
+  {
+    tag: 'Ecology',
+    tagColor: '#84CC16',
+    title: 'Dams Are Fragmenting River Ecosystems Irreversibly',
+    excerpt:
+      'Over 4,000 dams now fragment Indian rivers. Fish migration is blocked, sediment accumulates, and tribal communities lose access to fisheries. Scientists warn of ecosystem collapse by 2030.',
+    source: 'Nature India',
+    date: 'Dec 2024',
+    href: 'https://www.nature.com/natindia',
+  },
+]
+
+// Decorative gradient block used in place of broken images
+function ArticleAccent({ color }) {
+  return (
+    <div
+      className="w-full h-full absolute inset-0"
+      style={{
+        background: `radial-gradient(ellipse at 30% 50%, ${color}22 0%, transparent 70%),
+                     linear-gradient(135deg, ${color}0a 0%, transparent 60%)`,
+      }}
+    />
+  )
+}
 
 export default function LandingPage({ onEnter }) {
   return (
@@ -93,7 +152,7 @@ export default function LandingPage({ onEnter }) {
           style={{ color: 'var(--muted)', fontFamily: 'var(--font-body)' }}
         >
           The CPCB monitors 603 rivers. The reports live in PDFs no official wants you to read.
-          Watershed takes that data and gives every Indian river a grade — A to F —
+          RiverLens takes that data and gives every Indian river a grade — A to F —
           in plain language anyone can understand and act on.
         </motion.p>
 
@@ -240,7 +299,7 @@ export default function LandingPage({ onEnter }) {
             </p>
             <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
               Grades are calculated from <strong style={{ color: 'var(--sand)' }}>CPCB NWMP 2021</strong> — the most recent publicly available national monitoring data.
-              For 10 major rivers, Watershed also shows <strong style={{ color: '#fb923c' }}>2025–2026 estimates</strong> based on published research papers,
+              For 10 major rivers, RiverLens also shows <strong style={{ color: '#fb923c' }}>2025–2026 estimates</strong> based on published research papers,
               CPCB trend data, and NGT reports. Estimates are clearly labelled and sourced — they are not official readings.
               Real conditions may have changed.
             </p>
@@ -269,9 +328,9 @@ export default function LandingPage({ onEnter }) {
               className="overflow-hidden rounded-2xl group cursor-pointer"
             >
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
-                <img 
-                  src="/images/yamuna.jpg" 
-                  alt="Yamuna River" 
+                <img
+                  src="/images/yamuna.jpg"
+                  alt="Yamuna River"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -281,7 +340,7 @@ export default function LandingPage({ onEnter }) {
                   Yamuna River
                 </h3>
                 <p style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.6, fontFamily: 'var(--font-body)' }}>
-                  Delhi's lifeline carries 1,800 MLD of untreated sewage daily. Fecal coliform levels reach 4.9M MPN/100mL — 10,000x safe limits.
+                  Delhi's lifeline carries 1,800 MLD of untreated sewage daily. Fecal coliform levels reach 4.9M MPN/100mL — 10,000× safe limits.
                 </p>
               </div>
             </motion.div>
@@ -295,9 +354,9 @@ export default function LandingPage({ onEnter }) {
               className="overflow-hidden rounded-2xl group cursor-pointer"
             >
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
-                <img 
-                  src="/images/ganga.jpg" 
-                  alt="Ganga River" 
+                <img
+                  src="/images/ganga.jpg"
+                  alt="Ganga River"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -321,9 +380,9 @@ export default function LandingPage({ onEnter }) {
               className="overflow-hidden rounded-2xl group cursor-pointer"
             >
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
-                <img 
-                  src="/images/musi.jpg" 
-                  alt="Musi River" 
+                <img
+                  src="/images/musi.jpg"
+                  alt="Musi River"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -347,9 +406,9 @@ export default function LandingPage({ onEnter }) {
               className="overflow-hidden rounded-2xl group cursor-pointer"
             >
               <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 aspect-video overflow-hidden">
-                <img 
-                  src="/images/narmada.jpg" 
-                  alt="Narmada River" 
+                <img
+                  src="/images/narmada.jpg"
+                  alt="Narmada River"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -363,6 +422,123 @@ export default function LandingPage({ onEnter }) {
                 </p>
               </div>
             </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── Featured Articles ──────────────────────────────────────────── */}
+      <section className="px-6 py-14 max-w-5xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-xs font-medium tracking-widest uppercase mb-8"
+            style={{ color: 'var(--hint)', fontFamily: 'var(--font-body)' }}>
+            Latest research &amp; reporting
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {ARTICLES.map((article, i) => (
+              <motion.a
+                key={i}
+                href={article.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.08 * i }}
+                className="group block rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: `1px solid ${article.tagColor}28`,
+                  boxShadow: `0 0 24px ${article.tagColor}08`,
+                }}
+              >
+                {/* ── Coloured accent header (no broken image) ── */}
+                <div
+                  className="relative w-full overflow-hidden flex items-end px-5 pb-4 pt-8"
+                  style={{
+                    minHeight: '90px',
+                    background: `linear-gradient(135deg, ${article.tagColor}14 0%, ${article.tagColor}06 100%)`,
+                    borderBottom: `1px solid ${article.tagColor}18`,
+                  }}
+                >
+                  {/* Subtle radial glow */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(ellipse at 10% 50%, ${article.tagColor}18 0%, transparent 65%)`,
+                    }}
+                  />
+
+                  {/* Tag pill */}
+                  <span
+                    className="relative z-10 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                    style={{
+                      background: article.tagColor + '22',
+                      color: article.tagColor,
+                      fontFamily: 'var(--font-body)',
+                      border: `1px solid ${article.tagColor}40`,
+                      letterSpacing: '0.04em',
+                    }}
+                  >
+                    {article.tag}
+                  </span>
+
+                  {/* External link icon — visible on hover */}
+                  <ArrowUpRight
+                    size={16}
+                    className="relative z-10 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    style={{ color: article.tagColor }}
+                  />
+                </div>
+
+                {/* ── Card body ── */}
+                <div className="p-5 flex flex-col gap-3">
+                  <h3
+                    className="leading-snug"
+                    style={{
+                      fontFamily: 'var(--font-head)',
+                      fontSize: '1rem',
+                      color: 'var(--sand)',
+                      lineHeight: 1.35,
+                    }}
+                  >
+                    {article.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      fontSize: '12px',
+                      color: 'var(--muted)',
+                      lineHeight: 1.65,
+                      fontFamily: 'var(--font-body)',
+                    }}
+                  >
+                    {article.excerpt}
+                  </p>
+
+                  {/* Source row */}
+                  <div
+                    className="flex items-center gap-2 pt-1"
+                    style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '10px' }}
+                  >
+                    <FileText size={11} style={{ color: 'var(--hint)', flexShrink: 0 }} />
+                    <span style={{ fontSize: '11px', color: 'var(--hint)', fontFamily: 'var(--font-body)' }}>
+                      {article.source}
+                    </span>
+                    <span
+                      className="ml-auto text-xs"
+                      style={{ color: 'var(--hint)', fontFamily: 'var(--font-body)' }}
+                    >
+                      {article.date}
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
+            ))}
           </div>
         </motion.div>
       </section>
@@ -388,7 +564,7 @@ export default function LandingPage({ onEnter }) {
       <div className="border-t py-5 text-center"
         style={{ borderColor: 'var(--border)' }}>
         <p style={{ fontSize: '11px', color: 'var(--hint)', fontFamily: 'var(--font-body)' }}>
-          Watershed · CPCB NWMP 2021 · Built for public awareness, not profit
+          RiverLens · CPCB NWMP 2021 · Built for public awareness, not profit
         </p>
       </div>
     </div>
