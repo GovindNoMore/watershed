@@ -1,6 +1,3 @@
-/**
- * App.jsx — Main app with Landing → Menu → Details/Map flow
- */
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
@@ -46,12 +43,10 @@ export default function App() {
     setSelectedRiver(null)
   }
 
-  /* ── Landing ───────────────────────────── */
   if (view === 'landing') {
     return <LandingPage onEnter={enterApp} />
   }
 
-  /* ── Menu View ────────────────────────────── */
   if (view === 'menu') {
     return (
       <div className="w-screen h-screen overflow-hidden" style={{ background: 'var(--ink)' }}>
@@ -83,7 +78,6 @@ export default function App() {
     )
   }
 
-  /* ── Details View ────────────────────────────── */
   if (view === 'details' && selectedRiver) {
     return (
       <div className="w-screen h-screen flex flex-col overflow-hidden" style={{ background: 'var(--ink)' }}>
@@ -134,7 +128,6 @@ export default function App() {
     )
   }
 
-  /* ── Map View ────────────────────────────── */
   if (view === 'map') {
     return (
       <div className="w-screen h-screen overflow-hidden flex flex-col" style={{ background: 'var(--ink)' }}>

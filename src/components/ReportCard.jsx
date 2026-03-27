@@ -1,8 +1,3 @@
-/**
- * ReportCard.jsx — Improved river detail panel
- * Additions: health summary pills, BOD/DO visual bars, quick-glance
- * safety badges, cleaner 2026 projection card, compact scrollable layout.
- */
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, MapPin, Activity, Droplets, Thermometer, AlertCircle, CheckCircle, Info } from 'lucide-react'
 import GradeBadge from './GradeBadge'
@@ -10,8 +5,6 @@ import ParameterGrid from './ParameterGrid'
 import TrendChart from './TrendChart'
 import AIInsight from './AIInsight'
 import ShareCard from './ShareCard'
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const GRADE_META = {
   A: { color: '#22C55E', text: 'text-green-400',  label: 'Excellent', desc: 'Safe for bathing and recreation' },
@@ -21,7 +14,6 @@ const GRADE_META = {
   F: { color: '#EF4444', text: 'text-red-400',    label: 'Critical',  desc: 'Severely polluted — health risk' },
 }
 
-/** Thin horizontal bar showing a value within a range */
 function MiniBar({ value, min, max, dangerAbove, dangerBelow, unit, label }) {
   if (value == null) return null
   const pct = Math.min(100, Math.max(0, ((value - min) / (max - min)) * 100))
@@ -84,7 +76,7 @@ export default function ReportCard({ river, onClose }) {
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         className="h-full flex flex-col overflow-hidden"
       >
-        {/* ── Header ── */}
+        {/* Header */}
         <div className="flex items-start justify-between p-5 pb-3 shrink-0">
           <div className="flex-1 min-w-0 pr-3">
             <h2 className="font-display text-2xl font-bold text-river-sand leading-tight">
@@ -106,7 +98,7 @@ export default function ReportCard({ river, onClose }) {
           </div>
         </div>
 
-        {/* ── Grade label + safety badges ── */}
+        {/* Grade label + safety badges */}
         <div className="px-5 pb-3 shrink-0 space-y-2.5">
           <div>
             <div className="flex items-center gap-2">
@@ -136,7 +128,7 @@ export default function ReportCard({ river, onClose }) {
           </div>
         </div>
 
-        {/* ── Visual bars for key params ── */}
+        {/* Visual bars for key params */}
         <div className="px-5 pb-4 shrink-0 space-y-2.5 border-b" style={{ borderColor: 'var(--border)' }}>
           <p style={{ fontSize: '10px', fontFamily: 'var(--font-body)', color: 'var(--hint)', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
             Key Indicators
@@ -148,7 +140,7 @@ export default function ReportCard({ river, onClose }) {
           )}
         </div>
 
-        {/* ── Scrollable content ── */}
+        {/* Scrollable content */}
         <div className="flex-1 overflow-y-auto scrollbar-thin px-5 pb-5 space-y-4 pt-4">
 
           <ParameterGrid river={river} />

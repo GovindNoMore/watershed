@@ -1,6 +1,3 @@
-/**
- * SearchBar.jsx — Autocomplete search for rivers and states
- */
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, X, MapPin } from 'lucide-react'

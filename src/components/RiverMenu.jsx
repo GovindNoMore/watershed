@@ -1,8 +1,3 @@
-/**
- * RiverMenu.jsx — Improved river panel with smart listing modes
- * New: Grade swim-lanes, health heatmap bar, inline spark metrics,
- *      state-grouped accordion, and a "crisis mode" alert strip.
- */
 import { useState, useMemo, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -12,8 +7,6 @@ import {
 } from 'lucide-react'
 import RiverMap from './RiverMap'
 import ReportCard from './ReportCard'
-
-// ─── Constants ────────────────────────────────────────────────────────────────
 
 const GRADE_META = {
   A: { color: '#22C55E', bg: 'rgba(34,197,94,0.12)', label: 'Excellent', emoji: '✦' },
@@ -46,9 +39,6 @@ const ACTIVISM_QUOTES = [
   { icon: <Droplets size={18} />,      color: '#F59E0B', headline: '70%', sub: 'of waterborne diseases in India are caused by river pollution', source: 'CPCB Data 2022' },
 ]
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
-
-/** Horizontal health distribution bar shown in the hero */
 function HealthBar({ rivers }) {
   const gradeCounts = useMemo(() => {
     const counts = { A: 0, B: 0, C: 0, D: 0, F: 0 }
@@ -100,7 +90,6 @@ function HealthBar({ rivers }) {
   )
 }
 
-/** Single river card for list mode */
 function RiverRow({ river, metrics, isSelected, onClick, index }) {
   const m = metrics[river.river_name] || {}
   const meta = GRADE_META[river.grade] || GRADE_META['?']

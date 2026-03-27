@@ -1,14 +1,5 @@
-/**
- * groqInsight.js — Groq AI integration for plain-English river summaries
- *
- * Model: llama-3.3-70b-versatile (fast, free tier, no credit card)
- * Base URL: https://api.groq.com/openai/v1/chat/completions
- */
-
 const GROQ_BASE = 'https://api.groq.com/openai/v1/chat/completions'
 const MODEL     = import.meta.env.VITE_GROQ_MODEL || 'llama-3.3-70b-versatile'
-
-// ─── Prompt Builder ───────────────────────────────────────────────────────────
 
 export function buildPrompt(river) {
   const na = (v) => (v !== null && v !== undefined ? v : 'Not available')
@@ -38,8 +29,6 @@ Respond with this exact JSON structure:
 }`,
   }
 }
-
-// ─── API Call ─────────────────────────────────────────────────────────────────
 
 export async function fetchRiverInsight(river) {
   const apiKey = import.meta.env.VITE_GROQ_API_KEY
@@ -84,8 +73,6 @@ export async function fetchRiverInsight(river) {
     throw new Error('Groq returned non-JSON response: ' + content.slice(0, 100))
   }
 }
-
-// ─── Fallback (no API key / error) ───────────────────────────────────────────
 
 export function getFallbackInsight(river) {
   const grade = river.grade

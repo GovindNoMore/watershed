@@ -1,6 +1,3 @@
-/**
- * GradeBadge.jsx — Animated A/B/C/D/F badge
- */
 import { motion } from 'framer-motion'
 import { GRADE_META } from '../utils/grading'
 

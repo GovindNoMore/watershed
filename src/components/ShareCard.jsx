@@ -1,6 +1,3 @@
-/**
- * ShareCard.jsx — Generate & download a shareable river report image
- */
 import { useRef, useState } from 'react'
 import { Share2, Download, Check } from 'lucide-react'
 import { GRADE_META } from '../utils/grading'
@@ -30,7 +27,6 @@ export default function ShareCard({ river }) {
 
   return (
     <div className="space-y-2">
-      {/* Hidden render target */}
       <div ref={cardRef} style={{ position:'absolute', left:'-9999px', width:'600px', background:'#1F2D45', padding:'28px', borderRadius:'16px', fontFamily:'Inter,sans-serif', color:'#F5F0E8' }}>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:20 }}>
           <div>

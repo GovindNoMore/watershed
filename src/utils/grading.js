@@ -1,47 +1,36 @@
-/**
- * grading.js — RiverLens grading engine
- *
- * Weights (plan spec, nitrate excluded since data unavailable):
- *   BOD            30%  →  scaled to 33%
- *   Dissolved O2   25%  →  scaled to 28%
- *   Fecal Coliform 25%  →  scaled to 28%
- *   pH             10%  →  scaled to 11%
- *
- * Each parameter → 0–4 score. Weighted average → letter grade.
- */
-
-// ─── Individual Parameter Scorers ────────────────────────────────────────────
+// Weights: BOD 33%, DO 28%, Fecal Coliform 28%, pH 11%
+// Each parameter scores 0–4, then weighted average → letter grade
 
 export function scoreBOD(bod) {
   if (bod === null || bod === undefined) return null
-  if (bod <= 2)  return 4.0  // Pristine
-  if (bod <= 3)  return 3.5  // A threshold
-  if (bod <= 5)  return 3.0  // Moderate - B
-  if (bod <= 8)  return 2.0  // C
-  if (bod <= 15) return 1.0  // D
-  if (bod <= 30) return 0.5  // Severe D/F boundary
-  return 0.0                  // F — critical
+  if (bod <= 2)  return 4.0
+  if (bod <= 3)  return 3.5
+  if (bod <= 5)  return 3.0
+  if (bod <= 8)  return 2.0
+  if (bod <= 15) return 1.0
+  if (bod <= 30) return 0.5
+  return 0.0
 }
 
 export function scoreDO(doMin) {
   if (doMin === null || doMin === undefined) return null
-  if (doMin >= 8)  return 4.0  // Excellent
+  if (doMin >= 8)  return 4.0
   if (doMin >= 6)  return 3.5
-  if (doMin >= 5)  return 3.0  // A/B threshold
-  if (doMin >= 4)  return 2.0  // C
-  if (doMin >= 2)  return 1.0  // D
+  if (doMin >= 5)  return 3.0
+  if (doMin >= 4)  return 2.0
+  if (doMin >= 2)  return 1.0
   if (doMin >= 0.5) return 0.5
-  return 0.0                    // F — anoxic
+  return 0.0
 }
 
 export function scoreFecalColiform(fc) {
   if (fc === null || fc === undefined) return null
-  if (fc <= 100)    return 4.0  // Very clean
-  if (fc <= 500)    return 3.5  // Regulatory limit
-  if (fc <= 2500)   return 2.5  // B
-  if (fc <= 10000)  return 1.5  // C
-  if (fc <= 100000) return 0.5  // D
-  return 0.0                    // F
+  if (fc <= 100)    return 4.0
+  if (fc <= 500)    return 3.5
+  if (fc <= 2500)   return 2.5
+  if (fc <= 10000)  return 1.5
+  if (fc <= 100000) return 0.5
+  return 0.0
 }
 
 export function scorePH(phMin, phMax) {
@@ -58,7 +47,7 @@ export function scorePH(phMin, phMax) {
   return 0.0
 }
 
-// ─── Weighted Grade Calculator ────────────────────────────────────────────────
+
 
 const WEIGHTS = {
   bod: 0.33,
@@ -102,7 +91,7 @@ export function calculateGrade(river) {
   return { letter, score: +finalScore.toFixed(2), scores, partial }
 }
 
-// ─── Grade Metadata ───────────────────────────────────────────────────────────
+
 
 export const GRADE_META = {
   A: {
@@ -161,7 +150,7 @@ export const GRADE_META = {
   },
 }
 
-// ─── Parameter Threshold Metadata ────────────────────────────────────────────
+
 
 export const PARAM_META = {
   bod: {
@@ -206,7 +195,7 @@ export const PARAM_META = {
   },
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+
 
 export function getParamStatus(paramKey, value) {
   if (value === null || value === undefined) return 'missing'

@@ -1,6 +1,3 @@
-/**
- * Estimate2026.jsx — Shows 2025–2026 research-based river condition estimate
- */
 import { motion } from 'framer-motion'
 import { TrendingUp, TrendingDown, Minus, FlaskConical, ExternalLink } from 'lucide-react'
 import { getEstimate2026 } from '../data/estimates2026'

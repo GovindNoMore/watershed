@@ -1,6 +1,3 @@
-/**
- * ParameterGrid.jsx — BOD / DO / pH / Fecal Coliform gauges
- */
 import { motion } from 'framer-motion'
 import { PARAM_META, getParamStatus } from '../utils/grading'
 

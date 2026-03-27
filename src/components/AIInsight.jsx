@@ -1,6 +1,3 @@
-/**
- * AIInsight.jsx — Groq-powered plain-English river summary
- */
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sparkles, AlertCircle, RefreshCw } from 'lucide-react'

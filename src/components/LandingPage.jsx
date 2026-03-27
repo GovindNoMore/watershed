@@ -1,8 +1,3 @@
-/**
- * LandingPage.jsx — RiverLens landing with activism framing
- * Fixed: article section — no broken images, clean card layout,
- * proper external link indicator, source pill, tag badge
- */
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Droplets, AlertTriangle, TrendingDown, FileText } from 'lucide-react'
 

@@ -1,14 +1,7 @@
-/**
- * RiverMap.jsx — Improved React Leaflet map
- * Additions: animated pulse rings on F-grade markers, grade legend overlay,
- *            cluster count badge on icons, hover tooltip, keyboard nav.
- */
 import { useEffect, useState, useImperativeHandle, forwardRef, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON, useMap, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-
-// ─── Constants ────────────────────────────────────────────────────────────────
 
 const GRADE_COLORS = {
   A: '#22C55E',
@@ -26,8 +19,6 @@ const GRADE_LABELS = {
   D: 'Poor',
   F: 'Critical',
 }
-
-// ─── MapController ────────────────────────────────────────────────────────────
 
 function MapController({ selectedRiver, mapRef }) {
   const map = useMap()
@@ -47,8 +38,6 @@ function MapController({ selectedRiver, mapRef }) {
 
   return null
 }
-
-// ─── Icon factory ─────────────────────────────────────────────────────────────
 
 function createPulseIcon(grade, isSelected, stationCount) {
   const color  = GRADE_COLORS[grade] || GRADE_COLORS['?']
